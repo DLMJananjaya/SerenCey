@@ -60,17 +60,25 @@ const Navbar = () => {
 
         {/* --- MOBILE HAMBURGER ICON --- */}
         <div className="md:hidden flex items-center">
+            
           <button 
-            onClick={() => setIsOpen(!isOpen)} 
-            className="text-white p-2 focus:outline-none px-0"
-          >
-            {isOpen ? <X size={30} /> : <Menu size={30} />}
-          </button>
+  onClick={() => setIsOpen(!isOpen)} 
+  className="text-[#064E3B] p-2 focus:outline-none px-0 transition-all duration-300"
+  /* FIXED: Style is now a prop inside the opening tag */
+  style={{ filter: "drop-shadow(0 0 8px rgba(255, 255, 255, 0.6))" }}
+>
+  {isOpen ? (
+    <X size={30} className="text-[#064E3B]" /> 
+  ) : (
+    <Menu size={30} />
+  )}
+</button>
         </div>
       </div>
 
       {/* --- MOBILE MENU OVERLAY --- */}
-<AnimatePresence className="fixed top-20 left-0 w-full z-50 bg-green-500/70 backdrop-blur-sm border-b border-white/5 pointer-events-auto shadow-2xl">
+      <div className="md:hidden bg-white shadow-lg absolute top-16 w-full left-0 z-50"></div>
+<AnimatePresence>
   {isOpen && (
     <motion.div 
       initial={{ opacity: 0, y: -10 }}
@@ -92,7 +100,9 @@ const Navbar = () => {
           onClick={() => setIsOpen(false)} 
           className="group relative transition-all duration-300"
         >
-          <span className="text-white font-black text-xs tracking-[0.5em] uppercase group-hover:text-[#064E3B] transition-colors duration-300">
+          <span className="text-[#064E3B] font-black text-xs tracking-[0.5em] uppercase group-hover:text-[#064E3B] transition-colors duration-300"
+          style={{ filter: "drop-shadow(0 0 8px rgba(255, 255, 255, 0.6))" }}
+          >
             Home
           </span>
           {/* Subtle underline hover effect */}
@@ -105,7 +115,9 @@ const Navbar = () => {
           onClick={() => setIsOpen(false)} 
           className="group relative transition-all duration-300"
         >
-          <span className="text-white font-black text-xs tracking-[0.5em] uppercase group-hover:text-[#064E3B] transition-colors duration-300">
+          <span className="text-[#064E3B] font-black text-xs tracking-[0.5em] uppercase group-hover:text-[#064E3B] transition-colors duration-300"
+          style={{ filter: "drop-shadow(0 0 8px rgba(255, 255, 255, 0.6))" }}
+          >
             About Us
           </span>
           <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#064E3B] transition-all duration-300 group-hover:w-full"></span>
