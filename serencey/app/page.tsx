@@ -1,65 +1,140 @@
-import Image from "next/image";
+"use client";
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Navbar from './components/Navbar';
+import Link from 'next/link';
+import Login from './login/page';
+import Footer from './components/Footer';
 
-export default function Home() {
+const images = [
+  "/hero/1.jpg",
+  "/hero/13.jpg",
+  "/hero/16.jpeg",
+  "/hero/17.jpeg",
+  "/hero/21.jpeg",
+  "/hero/47.jpg"
+  ];
+
+export default function HeroSlideshow() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+    <Navbar />
+    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#121212]">
+      
+      {/* --- SEAMLESS BACKGROUND SLIDESHOW --- */}
+<div className="absolute inset-0 z-0 bg-black">
+  {/* Removed mode="wait" to allow images to overlap during transition */}
+  <AnimatePresence initial={false}>
+    <motion.img
+      key={index}
+      src={images[index]}
+      // Cross-fade + Blur effect
+      initial={{ opacity: 0, filter: "blur(10px)" }}
+      animate={{ opacity: 1, filter: "blur(0px)" }}
+      exit={{ opacity: 0, filter: "blur(10px)" }}
+      transition={{ 
+        duration: 1.5, // Smooth transition time
+        ease: "easeInOut" 
+      }}
+      // 'absolute' is critical so images sit on top of each other
+      className="absolute inset-0 w-full h-full object-cover brightness-[0.45]"
+    />
+  </AnimatePresence>
+</div>
+
+      {/* --- CONTENT OVERLAY --- */}
+      <div className="relative z-10 text-center px-6 pt-40">
+        
+        <motion.span 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className="text-gray-200 font-bold tracking-[0.4em] uppercase text-xs mb-4 block"
+        >
+          Crafting journeys that let you
+          
+        </motion.span>
+        
+        <motion.h1 
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="text-6xl md:text-9xl font-black text-white mb-8 tracking-tighter uppercase leading-none"
+        >
+          Map your <br/>
+
+          <span className="text-transparent border-text">
+            
+            Freedom</span>
+          
+          <div className="flex flex-col sm:flex-row gap-5 justify-center mt-6">
+  {/* Correct Next.js Link with Capital 'L' */}
+  <div className="flex flex-col sm:flex-row gap-5 justify-center mt-6">
+          {/*  */}
+        {/* <div className="hidden md:flex items-center"> */}
+         <Link href="/booking" className="block w-fit mx-auto">
+  {/* 2. The Button goes on the INSIDE */}
+  <button className="bg-[#064E3B] text-white px-10 py-5 rounded-xl font-black text-lg tracking-widest hover:bg-white hover:text-[#064E3B] transition-all uppercase shadow-2xl hover:scale-105 active:scale-95 pointer-events-auto">
+    Discover More
+  </button>
+</Link>
+            
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+
+                  {/* Optional: Our Packages Button */}
+                      { /* <Link href="/packages">
+                      <button className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-5 rounded-xl font-black text-xs tracking-widest hover:bg-white hover:text-black transition-all uppercase shadow-xl hover:scale-105 active:scale-95">
+                           Our Packages
+                            </button>
+                              </Link> 
+                                         */}
+   </div>
+          
+          
+        </motion.h1>
+
+        {/* <motion.span 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className="text-gray-300 font-bold tracking-[0.4em] uppercase text-xs mb-4 block"
+        >
+          into unforgettable experiences.
+          
+        </motion.span> */}
+        
+        
+      </div>
+
+      <style jsx>{`
+        .border-text {
+          -webkit-text-stroke: 1.5px white;
+        }
+        @media (min-width: 768px) {
+          .border-text {
+            -webkit-text-stroke: 3px white;
+          }
+        }
+      `}</style>
+      
+    </section>
+
+    <section id ="login">
+      <Login/>
+    </section>
+
+    <Footer />
+    
+    
+    </>
+    
   );
 }
