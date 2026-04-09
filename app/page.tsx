@@ -3,7 +3,11 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Link from 'next/link';
-import Login from './login/page';
+import AboutSection from './components/AboutSection';
+import VisitorCount from './components/VisitorCount';
+import ReviewSection from './components/ReviewSection';
+import TopSelling from './tours/TopSelling';
+
 import Footer from './components/Footer';
 const base = process.env.NODE_ENV === 'production' ? '/SerenCey' : '';
 
@@ -131,8 +135,20 @@ export default function HeroSlideshow() {
       
     </section>
 
-    <section id ="login">
-      <Login/>
+    <section id ="about">
+      <AboutSection />
+      
+    </section>
+
+    <section id ="visitor-count">
+      <VisitorCount />
+    </section>
+    <section id ="tours">
+      <TopSelling />
+    </section>
+
+    <section id ="reviews">
+      <ReviewSection />
     </section>
 
     <Footer />
