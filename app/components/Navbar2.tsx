@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Menu, X } from 'lucide-react'; 
 import { motion, AnimatePresence } from 'framer-motion';
 
-const base = process.env.NODE_ENV === 'production' ? '/SerenCey' : '';
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +19,7 @@ const Navbar = () => {
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center">
             <Image
-              src={`${base}/logoNav.png`} 
+              src="/logoNav.png" 
               alt="SerenCey Logo"
               width={400} 
               height={400} 
