@@ -86,9 +86,9 @@ export default function HeroSlideshow() {
         {/* <div className="hidden md:flex items-center"> */}
          <Link href="/booking" className="block w-fit mx-auto">
   {/* 2. The Button goes on the INSIDE */}
-  <button className="bg-[#064E3B] text-white px-10 py-5 rounded-xl font-black text-lg tracking-widest hover:bg-white hover:text-[#064E3B] transition-all uppercase shadow-2xl hover:scale-105 active:scale-95 pointer-events-auto">
+  {/* <button className="bg-[#064E3B] text-white px-10 py-5 rounded-xl font-black text-lg tracking-widest hover:bg-white hover:text-[#064E3B] transition-all uppercase shadow-2xl hover:scale-105 active:scale-95 pointer-events-auto">
     Discover More
-  </button>
+  </button> */}
 </Link>
             
         </div>
