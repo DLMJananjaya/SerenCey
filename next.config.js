@@ -3,8 +3,8 @@ const nextConfig = {
   devIndicators: false,
   output: 'export',
   images: { unoptimized: true },
-  basePath: '/serencey',
-assetPrefix: '/serencey',
+  basePath: '/SerenCey',
+assetPrefix: '/SerenCey',
   
   
   
