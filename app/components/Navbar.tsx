@@ -21,10 +21,10 @@ const Navbar = () => {
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center">
             <Image
-  src="/Untitled_design__1_-removebg-preview.png"
+  src="/logoNav.png"
   alt="SerenCey Logo"
-  width={400}
-  height={400}
+  width={500}
+  height={500}
   className="h-39 md:h-20 lg:h-50 w-auto object-contain translate-y-1"
   priority
 />
