@@ -3,7 +3,11 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Link from 'next/link';
-import Login from './login/page';
+import AboutSection from './components/AboutSection';
+import VisitorCount from './components/VisitorCount';
+import ReviewSection from './components/ReviewSection';
+import TopSelling from './tours/TopSelling';
+
 import Footer from './components/Footer';
 const base = process.env.NODE_ENV === 'production' ? '/SerenCey' : '';
 
@@ -86,9 +90,9 @@ export default function HeroSlideshow() {
         {/* <div className="hidden md:flex items-center"> */}
          <Link href="/booking" className="block w-fit mx-auto">
   {/* 2. The Button goes on the INSIDE */}
-  {/* <button className="bg-[#064E3B] text-white px-10 py-5 rounded-xl font-black text-lg tracking-widest hover:bg-white hover:text-[#064E3B] transition-all uppercase shadow-2xl hover:scale-105 active:scale-95 pointer-events-auto">
+  <button className="bg-[#064E3B] text-white px-10 py-5 rounded-xl font-black text-lg tracking-widest hover:bg-white hover:text-[#064E3B] transition-all uppercase shadow-2xl hover:scale-105 active:scale-95 pointer-events-auto">
     Discover More
-  </button> */}
+  </button>
 </Link>
             
         </div>
@@ -131,8 +135,20 @@ export default function HeroSlideshow() {
       
     </section>
 
-    <section id ="login">
-      <Login/>
+    <section id ="about">
+      <AboutSection />
+      
+    </section>
+
+    <section id ="visitor-count">
+      <VisitorCount />
+    </section>
+    <section id ="tours">
+      <TopSelling />
+    </section>
+
+    <section id ="reviews">
+      <ReviewSection />
     </section>
 
     <Footer />
