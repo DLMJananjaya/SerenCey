@@ -21,7 +21,7 @@ const Navbar = () => {
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center">
             <Image
-  src="/logoNav.png"
+  src="https://pngimg.com/d/mario_PNG125.png
   alt="SerenCey Logo"
   width={500}
   height={500}
