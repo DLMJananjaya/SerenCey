@@ -15,7 +15,7 @@ const Footer = () => {
         {/* BRAND COLUMN */}
         <div className="">
           <Image 
-            src="/Untitled_design__1_-removebg-preview.png" 
+            src="/logoNav.png" 
             alt="SerenCey Logo" 
             width={500} 
             height={500} 
