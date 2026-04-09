@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Link from 'next/link';
 import Login from './login/page';
 import Footer from './components/Footer';
+const base = process.env.NODE_ENV === 'production' ? '/SerenCey' : '';
 
 
 
