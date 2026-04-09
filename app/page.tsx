@@ -5,15 +5,17 @@ import Navbar from './components/Navbar';
 import Link from 'next/link';
 import Login from './login/page';
 import Footer from './components/Footer';
+const isProd = process.env.NODE_ENV === 'production';
+const base = isProd ? '/SerenCey' : '';
 
 const images = [
-  "/hero/1.jpg",
-  "/hero/13.jpg",
-  "/hero/16.jpeg",
-  "/hero/17.jpeg",
-  "/hero/21.jpeg",
-  "/hero/47.jpg"
-  ];
+  `${base}/hero/1.jpg`,
+  `${base}/hero/13.jpg`,
+  `${base}/hero/16.jpeg`,
+  `${base}/hero/17.jpeg`,
+  `${base}/hero/21.jpeg`,
+  `${base}/hero/47.jpg`
+];
 
 export default function HeroSlideshow() {
   const [index, setIndex] = useState(0);
