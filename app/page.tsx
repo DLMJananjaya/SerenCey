@@ -7,6 +7,8 @@ import Login from './login/page';
 import Footer from './components/Footer';
 const base = process.env.NODE_ENV === 'production' ? '/SerenCey' : '';
 
+const base = process.env.NODE_ENV === 'production' ? '/SerenCey' : '';
+
 const images = [
   `${base}/hero/1.jpg`,
   `${base}/hero/13.jpg`,
@@ -15,6 +17,7 @@ const images = [
   `${base}/hero/21.jpeg`,
   `${base}/hero/47.jpg`
 ];
+
 
 export default function HeroSlideshow() {
   const [index, setIndex] = useState(0);
