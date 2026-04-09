@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 
 
-import logoImg from '../../public/Untitled_design__1_-removebg-preview.png'; // Adjust the path based on your folder
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,14 +21,13 @@ const Navbar = () => {
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center">
             <Image
-              src={logoImg} 
-              alt="SerenCey Logo"
-              width={400} 
-              height={400} 
-              /* FIXED: Responsive heights h-14 (mobile), h-20 (tablet), h-40 (desktop) */
-              className="h-39 md:h-20 lg:h-50 w-auto object-contain translate-y-1"
-              priority
-            />
+  src="/Untitled_design__1_-removebg-preview.png"
+  alt="SerenCey Logo"
+  width={400}
+  height={400}
+  className="h-39 md:h-20 lg:h-50 w-auto object-contain translate-y-1"
+  priority
+/>
           </Link>
         </div>
 
