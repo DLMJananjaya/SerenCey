@@ -16,9 +16,9 @@ const base = process.env.NODE_ENV === 'production' ? '/SerenCey' : '';
 const images = [
   "hero/1.jpg", // No slash at the start!
   "hero/13.jpg",
-  "hero/16.jpeg",
+  "hero/59.jpg",
   "hero/17.jpeg",
-  "hero/21.jpeg",
+  "hero/51.jpg",
   "hero/47.jpg"
 ];
 
@@ -35,82 +35,84 @@ export default function HeroSlideshow() {
 
   return (
     <>
-    <Navbar />
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#121212]">
-      
-      {/* --- SEAMLESS BACKGROUND SLIDESHOW --- */}
-<div className="absolute inset-0 z-0 bg-black">
-  {/* Removed mode="wait" to allow images to overlap during transition */}
-  <AnimatePresence initial={false}>
-    <motion.img
-      key={index}
-      src={images[index]}
-      // Cross-fade + Blur effect
-      initial={{ opacity: 0, filter: "blur(10px)" }}
-      animate={{ opacity: 1, filter: "blur(0px)" }}
-      exit={{ opacity: 0, filter: "blur(10px)" }}
-      transition={{ 
-        duration: 1.5, // Smooth transition time
-        ease: "easeInOut" 
-      }}
-      // 'absolute' is critical so images sit on top of each other
-      className="absolute inset-0 w-full h-full object-cover brightness-[0.45]"
-    />
-  </AnimatePresence>
-</div>
+      <Navbar />
+      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#121212]">
 
-      {/* --- CONTENT OVERLAY --- */}
-      <div className="relative z-10 text-center px-6 pt-40">
-        
-        <motion.span 
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="text-gray-200 font-bold tracking-[0.4em] uppercase text-xs mb-4 block"
-        >
-          Crafting journeys that let you
-          
-        </motion.span>
-        
-        <motion.h1 
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="text-6xl md:text-9xl font-black text-white mb-8 tracking-tighter uppercase leading-none"
-        >
-          Map your <br/>
-
-          <span className="text-transparent border-text">
-            
-            Freedom</span>
-          
-          <div className="flex flex-col sm:flex-row gap-5 justify-center mt-6">
-  {/* Correct Next.js Link with Capital 'L' */}
-  <div className="flex flex-col sm:flex-row gap-5 justify-center mt-6">
-          {/*  */}
-        {/* <div className="hidden md:flex items-center"> */}
-         <Link href="/booking" className="block w-fit mx-auto">
-  {/* 2. The Button goes on the INSIDE */}
-  <button className="bg-[#064E3B] text-white px-10 py-5 rounded-xl font-black text-lg tracking-widest hover:bg-white hover:text-[#064E3B] transition-all uppercase shadow-2xl hover:scale-105 active:scale-95 pointer-events-auto">
-    Discover More
-  </button>
-</Link>
-            
+        {/* --- SEAMLESS BACKGROUND SLIDESHOW --- */}
+        <div className="absolute inset-0 z-0 bg-black">
+          {/* Removed mode="wait" to allow images to overlap during transition */}
+          <AnimatePresence initial={false}>
+            <motion.img
+              key={index}
+              src={images[index]}
+              // Cross-fade + Blur effect
+              initial={{ opacity: 0, filter: "blur(10px)" }}
+              animate={{ opacity: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, filter: "blur(10px)" }}
+              transition={{
+                duration: 1.5, // Smooth transition time
+                ease: "easeInOut"
+              }}
+              // 'absolute' is critical so images sit on top of each other
+              className="absolute inset-0 w-full h-full object-cover brightness-[0.45]"
+            />
+          </AnimatePresence>
         </div>
 
+        {/* --- CONTENT OVERLAY --- */}
+        <div className="relative z-10 text-center px-6 pt-40">
 
-                  {/* Optional: Our Packages Button */}
-                      { /* <Link href="/packages">
+          <motion.span
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            className="text-gray-200 font-bold tracking-[0.4em] uppercase text-xs mb-4 block"
+            style={{ textShadow: '0 0 20px rgba(0, 0, 0, 0.6), 0 2px 10px rgba(0, 0, 0, 0.4)' }}
+          >
+            Crafting journeys that let you
+
+          </motion.span>
+
+          <motion.h1
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-6xl md:text-9xl font-black text-white mb-8 tracking-tighter uppercase leading-none"
+            style={{ textShadow: '0 4px 30px rgba(0, 0, 0, 0.7), 0 2px 10px rgba(0, 0, 0, 0.5), 0 0 60px rgba(6, 78, 59, 0.3)' }}
+          >
+            Map your <br />
+
+            <span className="text-transparent border-text" style={{ textShadow: 'none' }}>
+
+              Freedom</span>
+
+            <div className="flex flex-col sm:flex-row gap-5 justify-center mt-6">
+              {/* Correct Next.js Link with Capital 'L' */}
+              <div className="flex flex-col sm:flex-row gap-5 justify-center mt-6">
+                {/*  */}
+                {/* <div className="hidden md:flex items-center"> */}
+                <Link href="/booking" className="block w-fit mx-auto">
+                  {/* 2. The Button goes on the INSIDE */}
+                  <button className="bg-[#064E3B] text-white px-10 py-5 rounded-xl font-black text-lg tracking-widest hover:bg-white hover:text-[#064E3B] transition-all uppercase shadow-2xl hover:scale-105 active:scale-95 pointer-events-auto">
+                    Discover More
+                  </button>
+                </Link>
+
+              </div>
+
+
+              {/* Optional: Our Packages Button */}
+              { /* <Link href="/packages">
                       <button className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-5 rounded-xl font-black text-xs tracking-widest hover:bg-white hover:text-black transition-all uppercase shadow-xl hover:scale-105 active:scale-95">
                            Our Packages
                             </button>
                               </Link> 
                                          */}
-   </div>
-          
-          
-        </motion.h1>
+            </div>
 
-        {/* <motion.span 
+
+          </motion.h1>
+
+          {/* <motion.span 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           className="text-gray-300 font-bold tracking-[0.4em] uppercase text-xs mb-4 block"
@@ -118,11 +120,11 @@ export default function HeroSlideshow() {
           into unforgettable experiences.
           
         </motion.span> */}
-        
-        
-      </div>
 
-      <style jsx>{`
+
+        </div>
+
+        <style jsx>{`
         .border-text {
           -webkit-text-stroke: 1.5px white;
         }
@@ -132,29 +134,29 @@ export default function HeroSlideshow() {
           }
         }
       `}</style>
-      
-    </section>
 
-    <section id ="about">
-      <AboutSection />
-      
-    </section>
+      </section>
 
-    <section id ="visitor-count">
-      <VisitorCount />
-    </section>
-    <section id ="tours">
-      <TopSelling />
-    </section>
+      <section id="about">
+        <AboutSection />
 
-    <section id ="reviews">
-      <ReviewSection />
-    </section>
+      </section>
 
-    <Footer />
-    
-    
+      <section id="visitor-count">
+        <VisitorCount />
+      </section>
+      <section id="tours">
+        <TopSelling />
+      </section>
+
+      <section id="reviews">
+        <ReviewSection />
+      </section>
+
+      <Footer />
+
+
     </>
-    
+
   );
 }
