@@ -1,13 +1,10 @@
 "use client";
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { div } from 'framer-motion/client';
-
-
 
 const values = [
   {
@@ -42,12 +39,12 @@ const values = [
   },
 ];
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.15, ease: "easeOut" },
+    transition: { duration: 0.6, delay: i * 0.15, ease: "easeOut" as const },
   }),
 };
 
